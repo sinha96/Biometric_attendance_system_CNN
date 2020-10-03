@@ -26,3 +26,11 @@ There are many features that can be extracted from the faces, in this solution I
 Find the best match with respect to some threshold (in this case I have used it as tollerance) we classify the face in the image belogs to that perticular person.
 
 After classifying the image we log the name and time in a excel sheet and at the end of the day names that has not been recognised whole day been marked as absent.
+
+## Input for the model
+
+![alt text](./resources/unknown_face/5c141934e04d6221046463a4.jpeg)
+
+## Output of the model
+
+![alt text](./resources/output.jpeg)
