@@ -31,6 +31,10 @@ After classifying the image we log the name and time in a excel sheet and at the
 
 ![alt text](./resources/unknown_face/5c141934e04d6221046463a4.jpeg)
 
+## Model in process
+
+![alt text](./resources/process.gif)
+
 ## Output of the model
 
 ![alt text](./resources/output.jpeg)
