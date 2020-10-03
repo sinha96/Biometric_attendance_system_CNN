@@ -18,4 +18,11 @@ The existing flaws of traditional system:
 
 ## Resource Structure
 The folder sould be like following:<br>
+![alt text](./resources/folder_structure.png)
 
+
+## Proposed Solution
+There are many features that can be extracted from the faces, in this solution I am calculating 128 features and save their encoded values and then compare these ecoding with the encodings of faces which exists in our database which in this case it is KNOWN_FACE folder.
+Find the best match with respect to some threshold (in this case I have used it as tollerance) we classify the face in the image belogs to that perticular person.
+
+After classifying the image we log the name and time in a excel sheet and at the end of the day names that has not been recognised whole day been marked as absent.
