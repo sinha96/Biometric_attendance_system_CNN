@@ -30,10 +30,8 @@ for name in os.listdir(KNOWN_FACES_DIR):
 	for filename in os.listdir(f'{KNOWN_FACES_DIR}/{name}'):
 		try:
 			# Load an image
-			# image = face_recognition.load_image_file(f'{KNOWN_FACES_DIR}/{name}/{filename}')
 			image = cv2.imread(f'{KNOWN_FACES_DIR}/{name}/{filename}')
 			image = cv2.resize(image, (720, 1250))
-			# image = cv2.resize(image, (720, 1250))
 			# Get 128-dimension face encoding Always returns a list of found faces, for this purpose we take first
 			# face only (assuming one face per image as you can't be twice on one image)
 			encoding = face_recognition.face_encodings(image)[0]
@@ -43,7 +41,7 @@ for name in os.listdir(KNOWN_FACES_DIR):
 			known_names.append(name)
 
 		except Exception as ex:
-			print(filename)
+			print(f'{filename} has no face please provide another example')
 
 print('>>> Processing unknown faces...')
 # Now let's loop over a folder of faces we want to label
@@ -52,8 +50,7 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
 	# Load image
 	print(f'Filename {filename}', end='')
 	image = cv2.imread(f'{UNKNOWN_FACES_DIR}/{filename}')
-	# image = cv2.resize(image, (1250, 720))
-
+	
 	# This time we first grab face locations - we'll need them to draw boxes
 	locations = face_recognition.face_locations(image, model=MODEL)
 
@@ -62,8 +59,7 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
 	encodings = face_recognition.face_encodings(image, locations)
 	# We passed our image through face_locations and face_encodings, so we can modify it
 	# First we need to convert it from RGB to BGR as we are going to work with cv2
-	# image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
-
+	
 	# But this time we assume that there might be more faces in an image - we can find faces of dirrerent people
 	print(f', found {len(encodings)} face(s)')
 	for face_encoding, face_location in zip(encodings, locations):
