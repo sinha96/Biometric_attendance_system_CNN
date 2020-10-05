@@ -4,7 +4,7 @@ import cv2
 
 KNOWN_FACES_DIR = '/mnt/01D557900A25E360/face_recog_db/known_faces'
 UNKNOWN_FACES_DIR = '/mnt/01D557900A25E360/face_recog_db/unknown_face'
-TOLERANCE = 0.7
+TOLERANCE = 0.9
 FRAME_THICKNESS = 3
 FONT_THICKNESS = 2
 MODEL = 'cnn'  # default: 'hog', other one can be 'cnn' - CUDA accelerated (if available) deep-learning pretrained model
